@@ -49,7 +49,7 @@ console.log(b);
 
 console.log(personaTres.Saludo());
 
-interface MyPersona{
+interface MyPersona {
     first_name:string;
     last_name:string;
     twitter_account?:string;
