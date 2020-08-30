@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "UEFA": {
+    "discu2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/UEFA",
+            "outputPath": "dist/discu2",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "UEFA:build"
+            "browserTarget": "discu2:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "UEFA:build:production"
+              "browserTarget": "discu2:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "UEFA:build"
+            "browserTarget": "discu2:build"
           }
         },
         "test": {
@@ -110,18 +110,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "UEFA:serve"
+            "devServerTarget": "discu2:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "UEFA:serve:production"
+              "devServerTarget": "discu2:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "UEFA",
+  "defaultProject": "discu2",
   "cli": {
     "analytics": false
   }

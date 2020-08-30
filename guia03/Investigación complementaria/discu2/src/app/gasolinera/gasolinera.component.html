@@ -1,0 +1,12 @@
+<div class="header">
+    <h1>{{title}}</h1>
+    <p>Ingrese los datos solicitados para poder servirle gasolina</p>
+</div>
+<label>Cantidad en galones</label>
+<input type="number" step="0.05" min="0.05" max="150" onkeydown="return false" [(ngModel)]="cantidad" (change)="calcularPago()" value="{{cantidad}}">
+<label>Seleccione el tipo de gasolina:</label>
+<select [(ngModel)]="tipoGasolina" (change)="calcularPago()">
+    <option value="Ninguno">Seleccione un tipo</option>
+    <option *ngFor="let g of gasolina" value="{{g}}">{{g}}</option>
+</select>
+<label [hidden]="tipoGasolina == 'Ninguno'">El total a pagar es ${{totalPagar}}</label>
