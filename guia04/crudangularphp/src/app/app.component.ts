@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'crudangularphp';
 
   articulos = null;
+  validado = false;
 
   art = {
     codigo:0,
@@ -69,5 +70,20 @@ export class AppComponent {
 
   hayRegistros(){
     return true;
+  }
+
+  validar(metodo:string){
+    if(this.art.descripcion == null || this.art.descripcion == '' || this.art.precio == 0 || this.art.precio == null || this.art.proveedor == null || this.art.proveedor == '' || this.art.fabricante == null || this.art.fabricante == '' ){
+      alert('Todos los datos son requeridos, no debe dejar ninguno vacío');
+    }else{
+      switch(metodo){
+        case 'alta':
+          this.alta();
+        break;
+        case 'modificacion':
+          this.modificacion();
+        break;
+      }
+    }
   }
 }

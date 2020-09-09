@@ -35,7 +35,7 @@
         </ng-template>
         <div>
           <div class="form-group">
-            <input type="text" [(ngModel)]="art.descripcion" placeholder="descripcion" class="form-control">
+            <input type="text" [(ngModel)]="art.descripcion" placeholder="descripcion" class="form-control" #descripcion="ngModel">
           </div>
           <div class="form-group">
             <input type="number" [(ngModel)]="art.precio" placeholder="precio" class="form-control">
@@ -46,8 +46,8 @@
           <div class="form-group">
             <input type="text" [(ngModel)]="art.fabricante" placeholder="fabricante" class="form-control">
           </div>
-          <button (click)="alta()" *ngIf="art.codigo == 0" class="btn btn-primary btn-space">Agregar</button>
-          <button (click)="modificacion()" *ngIf="art.codigo !== 0" class="btn btn-warning">Modificar</button>
+          <button (click)="validar('alta')" *ngIf="art.codigo == 0" class="btn btn-primary btn-space">Agregar</button>
+          <button (click)="validar('modificacion')" *ngIf="art.codigo !== 0" class="btn btn-warning">Modificar</button>
         </div>
       </div>
     </div>
