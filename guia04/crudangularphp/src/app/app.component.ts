@@ -14,6 +14,9 @@ export class AppComponent {
 
   articulos = null;
   validado = false;
+  descripcionV:boolean = true;
+  proveedorV:boolean = true;
+  fabricanteV:boolean = true;
 
   art = {
     codigo:0,
@@ -72,7 +75,7 @@ export class AppComponent {
     return true;
   }
 
-  validar(metodo:string){
+  /*validar(metodo:string){
     if(this.art.descripcion == null || this.art.descripcion == '' || this.art.precio == 0 || this.art.precio == null || this.art.proveedor == null || this.art.proveedor == '' || this.art.fabricante == null || this.art.fabricante == '' ){
       alert('Todos los datos son requeridos, no debe dejar ninguno vacío');
     }else{
@@ -83,6 +86,49 @@ export class AppComponent {
         case 'modificacion':
           this.modificacion();
         break;
+      }
+    }
+  }*/
+
+  validar(cadena:string, tipo:string, funcion:string){
+    if(cadena != ''){
+      switch(tipo){
+        case 'desc':
+          if(isNaN(Number(cadena))){
+            this.descripcionV = true;
+          }else{
+            this.descripcionV = false;
+          }
+        break;
+        case 'prov':
+          if(isNaN(Number(cadena))){
+            this.proveedorV = true;
+          }else{
+            this.proveedorV = false;
+          }
+        break;
+        case 'fab':
+          if(isNaN(Number(cadena))){
+            this.fabricanteV = true;
+          }else{
+            this.fabricanteV = false;
+          }
+        break;
+      }
+    }else{
+      if(this.art.descripcion == null || this.art.descripcion == '' || this.art.precio == 0 || this.art.precio == null || 
+        this.art.proveedor == null || this.art.proveedor == '' || this.art.fabricante == null || this.art.fabricante == '' 
+        || !this.descripcionV || !this.proveedorV || !this.fabricanteV){
+        alert('Llene todos los campos de forma correcta');
+      }else{
+        switch(funcion){
+          case 'alta':
+            this.alta();
+          break;
+          case 'modificacion':
+            this.modificacion();
+          break;
+        }
       }
     }
   }
